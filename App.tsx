@@ -3,7 +3,7 @@ import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { MinistryAssistant } from './components/MinistryAssistant';
-import { Sermons } from './components/Sermons'; // Kept for homepage preview only
+import { Sermons } from './components/Sermons';
 import { About } from './components/About';
 import { MinistryArms } from './components/MinistryArms';
 import { Contact } from './components/Contact';
@@ -69,18 +69,17 @@ const App: React.FC = () => {
       case MinistryTab.EVENTS:
         return (
           <div className="min-h-screen">
-             <div className="bg-slate-900 py-20 text-center">
-                <h1 className="text-4xl font-serif font-bold text-white">Events Calendar</h1>
-                <p className="text-slate-400 mt-2">Join us in the field and at our conferences</p>
+             <div className="bg-coffee-900 py-24 text-center">
+                <h1 className="text-5xl font-serif font-bold text-white">Events Calendar</h1>
+                <p className="text-coffee-200 mt-4 text-lg">Join us in the field and at our conferences</p>
              </div>
              <UpcomingEvents />
-             <div className="bg-slate-50 py-12 text-center">
-                <p className="text-slate-600">Want to volunteer for an event? <button onClick={() => setActiveTab(MinistryTab.CONTACT)} className="text-gold-600 font-bold hover:underline">Contact us</button></p>
+             <div className="bg-coffee-50 py-16 text-center">
+                <p className="text-coffee-700">Want to volunteer for an event? <button onClick={() => setActiveTab(MinistryTab.CONTACT)} className="text-primary-500 font-bold hover:underline">Contact us</button></p>
              </div>
           </div>
         );
       
-      // NEW UNIFIED MEDIA SECTION
       case MinistryTab.MEDIA:
         return <MediaLibrary onViewItem={handleViewMediaItem} />;
       case MinistryTab.MEDIA_DETAIL:
@@ -89,10 +88,10 @@ const App: React.FC = () => {
         
       case MinistryTab.ASSISTANT:
         return (
-          <div className="max-w-4xl mx-auto px-4 py-20 min-h-screen">
-             <div className="mb-8 text-center">
-                <h2 className="text-3xl font-serif font-bold text-slate-900">NMI Prayer Assistant</h2>
-                <p className="text-slate-600">Need spiritual encouragement or have questions about our mission?</p>
+          <div className="max-w-4xl mx-auto px-4 py-24 min-h-screen">
+             <div className="mb-12 text-center">
+                <h2 className="text-4xl font-serif font-bold text-coffee-900">NMI Prayer Assistant</h2>
+                <p className="text-coffee-600 mt-2">Need spiritual encouragement or have questions about our mission?</p>
              </div>
              <MinistryAssistant />
           </div>
@@ -118,7 +117,6 @@ const App: React.FC = () => {
               onViewCause={handleViewCause}
             />
 
-            {/* Reusing Sermons component for Homepage Preview only */}
             <Sermons 
               isPreview={true} 
               onViewAll={() => setActiveTab(MinistryTab.MEDIA)} 
@@ -133,16 +131,17 @@ const App: React.FC = () => {
 
             <ImpactStories />
 
-            {/* CTA Strip */}
-            <div className="bg-slate-900 py-20">
-               <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-                  <div className="mb-8 md:mb-0">
-                     <h2 className="text-3xl font-serif font-bold text-white mb-2">Join the Movement</h2>
-                     <p className="text-slate-400 max-w-lg">We depend on God's power and your partnership to reach the unreached. Will you stand with us?</p>
+            {/* CTA Strip - Redesigned for Coffee Theme */}
+            <div className="bg-coffee-900 py-24 relative overflow-hidden">
+               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#8B4513_1px,transparent_1px)] [background-size:20px_20px]"></div>
+               <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between relative z-10">
+                  <div className="mb-10 md:mb-0 text-center md:text-left">
+                     <h2 className="text-4xl font-serif font-bold text-white mb-4">Join the Movement</h2>
+                     <p className="text-coffee-200 max-w-lg text-lg">We depend on God's power and your partnership to reach the unreached. Will you stand with us today?</p>
                   </div>
-                  <div className="flex space-x-4">
-                     <button onClick={() => setActiveTab(MinistryTab.ABOUT)} className="px-8 py-4 border border-slate-600 text-white rounded-lg font-medium hover:bg-slate-800 transition-colors uppercase tracking-wider text-sm">Learn More</button>
-                     <button onClick={() => setActiveTab(MinistryTab.GIVING)} className="px-8 py-4 bg-gold-500 text-white rounded-lg font-bold hover:bg-gold-600 transition-colors uppercase tracking-wider text-sm shadow-lg shadow-gold-500/20">Donate Now</button>
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                     <button onClick={() => setActiveTab(MinistryTab.ABOUT)} className="px-10 py-5 border border-white/20 text-white rounded-xl font-bold hover:bg-white/10 transition-colors uppercase tracking-[0.2em] text-xs">Learn More</button>
+                     <button onClick={() => setActiveTab(MinistryTab.GIVING)} className="px-10 py-5 bg-primary-500 text-white rounded-xl font-bold hover:bg-primary-600 transition-colors uppercase tracking-[0.2em] text-xs shadow-xl shadow-primary-500/20">Donate Now</button>
                   </div>
                </div>
             </div>
@@ -152,7 +151,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans flex flex-col">
+    <div className="min-h-screen bg-white text-coffee-900 font-sans flex flex-col">
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
       
       <main className="flex-grow">

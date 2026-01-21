@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Eye, Book, Shield, Heart, Zap, Users, Globe } from 'lucide-react';
+import { Target, Eye, Book, Shield, Heart, Zap, Users, Globe, ArrowDownLeft } from 'lucide-react';
 
 export const About: React.FC = () => {
   const values = [
@@ -13,78 +13,106 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white py-20">
+    <div className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Intro */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl font-serif font-bold text-slate-900 mb-6">Who We Are</h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
+        {/* Intro Section - Matched to Screenshot */}
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <h2 className="text-5xl font-serif font-bold text-coffee-900 mb-10">Who We Are</h2>
+          <p className="text-xl text-coffee-600 leading-relaxed font-normal">
             Noah Ministries International (NMI) is a Christ-centered mission movement dedicated to proclaiming the Gospel and demonstrating the compassion of Jesus. Following the pattern of Christ, we go village-to-village bringing spiritual renewal and physical restoration.
           </p>
         </div>
 
-        {/* Vision & Mission Cards */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          <div className="bg-slate-50 p-10 rounded-2xl border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-shadow">
-            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-              <Target size={120} />
+        {/* Vision & Mission Cards - Matched to Screenshot */}
+        <div className="grid md:grid-cols-2 gap-10 mb-24">
+          
+          {/* Our Mission Card */}
+          <div className="bg-white border border-coffee-100 rounded-3xl p-12 shadow-sm relative overflow-hidden flex flex-col min-h-[440px]">
+            {/* Background Graphic: Concentric Circles */}
+            <div className="absolute top-1/2 right-[-10%] -translate-y-1/2 opacity-[0.04] pointer-events-none text-primary-500">
+              <svg width="400" height="400" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" strokeWidth="1" />
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="1" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
+              </svg>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6 flex items-center">
-              <span className="w-10 h-1 rounded bg-gold-500 mr-4"></span>
-              Our Mission
-            </h3>
-            <ul className="space-y-4 text-slate-600">
-              <li className="flex items-start">
-                <span className="text-gold-500 mr-2 font-bold">•</span>
-                Glorifying Christ in all we do.
-              </li>
-              <li className="flex items-start">
-                <span className="text-gold-500 mr-2 font-bold">•</span>
-                Making disciples through preaching and repentance.
-              </li>
-              <li className="flex items-start">
-                <span className="text-gold-500 mr-2 font-bold">•</span>
-                Bringing holistic restoration (spiritual, emotional, physical).
-              </li>
-              <li className="flex items-start">
-                <span className="text-gold-500 mr-2 font-bold">•</span>
-                Pointing all people to the unfailing love of Jesus.
-              </li>
-            </ul>
+
+            <div className="relative z-10">
+              <div className="flex items-center mb-10">
+                <div className="w-12 h-1.5 bg-primary-500 rounded-full mr-4"></div>
+                <h3 className="text-3xl font-serif font-bold text-coffee-900">Our Mission</h3>
+              </div>
+              
+              <ul className="space-y-6">
+                {[
+                  "Glorifying Christ in all we do.",
+                  "Making disciples through preaching and repentance.",
+                  "Bringing holistic restoration (spiritual, emotional, physical)."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start text-lg text-coffee-700 font-medium">
+                    <span className="text-primary-500 mr-3 text-2xl leading-none">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="bg-slate-900 p-10 rounded-2xl text-white relative overflow-hidden group hover:shadow-lg transition-shadow">
-            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-              <Eye size={120} />
+          {/* Our Vision Card - Dark Coffee Theme */}
+          <div className="bg-coffee-900 rounded-3xl p-12 shadow-2xl relative overflow-hidden flex flex-col min-h-[440px]">
+            {/* Background Graphic: Eye Icon from Screenshot */}
+            <div className="absolute bottom-[10%] right-[10%] opacity-10 pointer-events-none">
+              <div className="relative">
+                {/* Stylized Eye */}
+                <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                  <circle cx="12" cy="12" r="6" strokeDasharray="2 2" />
+                </svg>
+                {/* Blue Decorative Arrow from Screenshot */}
+                <div className="absolute -top-12 -left-12 text-blue-400">
+                  <ArrowDownLeft className="w-24 h-24 stroke-[1px] rotate-[10deg]" />
+                </div>
+              </div>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-white mb-6 flex items-center">
-              <span className="w-10 h-1 rounded bg-gold-500 mr-4"></span>
-              Our Vision
-            </h3>
-            <p className="text-slate-300 leading-relaxed text-lg mb-6">
-              To see communities, villages, and nations transformed by the saving power and compassion of Jesus Christ.
-            </p>
-            <p className="text-slate-400 italic">
-              "We envision a world where the Gospel of Christ brings total restoration—spirit, soul, and body—until every heart reflects the glory of God."
-            </p>
+
+            <div className="relative z-10">
+              <div className="flex items-center mb-10">
+                <div className="w-12 h-1.5 bg-primary-500 rounded-full mr-4"></div>
+                <h3 className="text-3xl font-serif font-bold text-white">Our Vision</h3>
+              </div>
+              
+              <p className="text-xl text-coffee-100 leading-relaxed font-medium mb-10">
+                To see communities, villages, and nations transformed by the saving power and compassion of Jesus Christ.
+              </p>
+              
+              <p className="text-coffee-300 italic text-lg leading-relaxed border-l border-white/20 pl-6">
+                "We envision a world where the Gospel of Christ brings total restoration—spirit, soul, and body—until every heart reflects the glory of God."
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Core Values */}
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-serif font-bold text-slate-900">Our Core Values</h3>
-          <div className="h-1 w-24 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-        </div>
+        {/* Core Values Section */}
+        <div className="pt-24 border-t border-coffee-100">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-serif font-bold text-coffee-900">Our Core Values</h3>
+            <div className="h-1.5 w-24 bg-primary-500 mx-auto mt-6 rounded-full"></div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {values.map((val, idx) => (
-            <div key={idx} className="p-6 border border-slate-100 rounded-xl hover:border-gold-500/50 hover:bg-slate-50 transition-all duration-300">
-              <val.icon className="w-10 h-10 text-gold-500 mb-4" />
-              <h4 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">{val.desc}</p>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {values.map((val, idx) => (
+              <div key={idx} className="p-10 bg-coffee-50 border border-coffee-100 rounded-2xl hover:border-primary-500/50 hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:bg-primary-500 transition-colors">
+                  <val.icon className="w-8 h-8 text-primary-500 group-hover:text-white transition-colors" />
+                </div>
+                <h4 className="text-xl font-bold text-coffee-900 mb-4">{val.title}</h4>
+                <p className="text-coffee-600 leading-relaxed text-sm">{val.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
